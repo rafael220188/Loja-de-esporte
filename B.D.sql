@@ -11,7 +11,7 @@ INSERT INTO cliente (cod_cliente, cpf, endereco, nome, telefone)
 VALUES ('11', '01605574098','rua tal','Fabiana','51-12345678');
 
 INSERT INTO cliente (cod_cliente, cpf, endereco, nome, telefone) 
-VALUES ('12', '01565498723','rua','Alessandra','51-98765432');
+VALUES ('12', '01565498723','rua bento','Alessandra','51-98765432');
 
 Select * From cliente
 
