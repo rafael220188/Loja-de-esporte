@@ -1,3 +1,5 @@
+package Loja.dao;
+import pojo.Cliente;
 
 import java.io.FileInputStream;
 import java.sql.Connection;
@@ -6,12 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Properties;
 
-import pojo.Cliente;
-
-
 public class LojaEsporteDAO {
 
-	public Cliente findContaByCPF(String cpf) {
+	public Cliente findClienteByCPF(String cpf) {
 		Cliente cliente = null;
 		String cmd = "select * from cliente";
 
@@ -28,7 +27,7 @@ public class LojaEsporteDAO {
 			db = DriverManager.getConnection(url, props);
 
 			st = db.prepareStatement(cmd);
-			//st.setString(1, cpf);
+			// st.setString(1, cpf);
 			rs = st.executeQuery();
 
 			while (rs.next()) {
@@ -38,8 +37,9 @@ public class LojaEsporteDAO {
 				String endereco = rs.getString(3);
 				String nome = rs.getString(4);
 				String telefone = rs.getString(5);
-				cliente = new Cliente(nome, endereco, cpfBD, telefone, codCliente);
-				
+				cliente = new Cliente(nome, endereco, cpfBD, telefone,
+						codCliente);
+
 			}
 
 		} catch (Exception e) {
@@ -63,7 +63,7 @@ public class LojaEsporteDAO {
 	}
 
 	public void insertCliente(Cliente cliente) {
-		String cmd = "insert into pdr_contas(cpf, nome, numero) values (?, ?, ?)";
+		String cmd = "insert into cliente(cpf, endereco, nome, numero) values (?, ?, ?, ?)";
 
 		Connection db = null;
 		PreparedStatement st = null;
@@ -84,7 +84,7 @@ public class LojaEsporteDAO {
 			int r = st.executeUpdate();
 
 			if (r != 1) {
-				throw new RuntimeException("Erro ao inserir conta!");
+				throw new RuntimeException("Erro ao inserir cliente!");
 			}
 
 		} catch (Exception e) {
