@@ -1,6 +1,6 @@
 ﻿CREATE TABLE cliente(
-cod_cliente Serial PRIMARY KEY,
-cpf      integer NOT NUll,
+cod_cliente varchar NOT NULL,
+cpf      varchar NOT NULL ,
 endereco varchar NOT NULL,
 nome     varchar NOT NULL,
 telefone varchar NOT NULL
@@ -8,12 +8,12 @@ telefone varchar NOT NULL
 
 
 INSERT INTO cliente (cod_cliente, cpf, endereco, nome, telefone) 
-VALUES ('11', '01605574098','rua tal','Fabiana','51-12345678');
+VALUES ('11', '01605574098','rua tal','Fabiana','51 12345678');
 
 INSERT INTO cliente (cod_cliente, cpf, endereco, nome, telefone) 
-VALUES ('12', '01565498723','rua bento','Alessandra','51-98765432');
+VALUES ('12', '01565498723','rua bento','Alessandra','51 98765432');
 
-Select * From cliente
+Select * From cliente 
 
 CREATE TABLE produto(
 cod_produto int,

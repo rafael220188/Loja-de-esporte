@@ -1,3 +1,5 @@
+package pojo;
+
 public class Produto {
 	private String codigo;
 	private String nome;

@@ -1,12 +1,15 @@
+package pojo;
+
 public class Cliente {
 
+	private int codCliente;
 	private String nome;
 	private String endereco;
-	private int cpf;
-	private int telefone;
-	private int codCliente;
+	private String cpf;
+	private String telefone;
 
-	public Cliente(String nome, String endereco, int cpf, int telefone, int codCliente) {
+	public Cliente(String nome, String endereco, String cpf, String telefone,
+			int codCliente) {
 		super();
 		this.nome = nome;
 		this.endereco = endereco;
@@ -14,6 +17,19 @@ public class Cliente {
 		this.telefone = telefone;
 		this.codCliente = codCliente;
 	}
+	
+
+
+	public Cliente( String nome, String endereco, String cpf, String telefone) {
+		super();
+		this.codCliente = 1;
+		this.nome = nome;
+		this.endereco = endereco;
+		this.cpf = cpf;
+		this.telefone = telefone;
+	}
+
+
 
 	public String getNome() {
 		return nome;
@@ -31,19 +47,19 @@ public class Cliente {
 		this.endereco = endereco;
 	}
 
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 
@@ -54,5 +70,4 @@ public class Cliente {
 	public void setCodCliente(int codCliente) {
 		this.codCliente = codCliente;
 	}
-
 }
