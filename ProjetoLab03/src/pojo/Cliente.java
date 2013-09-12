@@ -70,15 +70,4 @@ public class Cliente {
 	public void setCodCliente(int codCliente) {
 		this.codCliente = codCliente;
 	}
-
-
-
-	@Override
-	public String toString() {
-		return "Cliente [codCliente=" + codCliente + ", nome=" + nome
-				+ ", endereco=" + endereco + ", cpf=" + cpf + ", telefone="
-				+ telefone + "]";
-	}
-
-	
 }
