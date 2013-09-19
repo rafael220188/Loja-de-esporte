@@ -1,12 +1,12 @@
 package action;
 
-import gui.CadastrarClientePanel;
+import gui.CadastrarProdutoPanel;
 
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
-import pojo.Cliente;
+import pojo.Produto;
 import Loja.dao.LojaEsporteDAO;
 
 /**
@@ -14,27 +14,26 @@ import Loja.dao.LojaEsporteDAO;
  * @author marco.mangan@gmail.com
  *
  */
-public class CadastrarClienteAction extends AbstractAction {
+public class CadastrarProdutoAction extends AbstractAction {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private CadastrarClientePanel panel;
+	private CadastrarProdutoPanel panel;
 
-	public CadastrarClienteAction(CadastrarClientePanel panel) {
+	public CadastrarProdutoAction(CadastrarProdutoPanel panel) {
 		super("Cadastrar");
 		this.panel = panel;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		Cliente c = panel.getCliente();
+		Produto c1 = panel.getProduto();
 		//System.out.println(c);
 		LojaEsporteDAO dao = new LojaEsporteDAO();
-		dao.insertCliente(c);
+		dao.insertProduto(c1);
 		panel.clear();
-	
 	}
 }

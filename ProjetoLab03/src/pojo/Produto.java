@@ -3,12 +3,14 @@ package pojo;
 public class Produto {
 	private String codigo;
 	private String nome;
-	private float preco;
+	private String preco;
+	private String quantidade;
 
-	public Produto(String codigo, String nome, float preco) {
+	public Produto(String codigo, String nome, String preco, String quantidade) {
 		this.codigo = codigo;
 		this.nome = nome;
 		this.preco = preco;
+		this.quantidade = quantidade;
 	}
 
 	public String getCodigo() {
@@ -27,12 +29,21 @@ public class Produto {
 		this.nome = nome;
 	}
 
-	public float getPreco() {
+	public String getPreco() {
 		return preco;
 	}
 
-	public void setPreco(float preco) {
+	public void setPreco(String preco) {
 		this.preco = preco;
 	}
 
+	public String getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(String quantidade) {
+		this.quantidade = quantidade;
+	}
+
+	
 }

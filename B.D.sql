@@ -1,6 +1,6 @@
 ﻿CREATE TABLE cliente(
-cod_cliente integer NOT NULL,
-cpf      character varying,
+cod_cliente serial,
+cpf      character varying ,
 endereco character varying,
 nome     character varying,
 telefone character varying
@@ -16,16 +16,16 @@ VALUES ('12', '01565498723','rua bento','Alessandra',5198765432);
 Select * From cliente 
 
 CREATE TABLE produto(
-cod_produto int,
-nome_produto varchar(40),
-preco numeric(15,2),
-quantidade int);
+codigo character varying ,
+nome character varying ,
+preco character varying ,
+quantidade character varying );
 
 
-insert into produto (cod_produto, nome_produto, preco, quantidade)
+insert into produto (codigo , nome, preco, quantidade)
 values ('01', 'adidas', '200', '20');
 
-insert into produto (cod_produto, nome_produto, preco, quantidade)
+insert into produto (codigo, nome, preco, quantidade)
 values ('02', 'nike', '250', '30');
 
 Select * From produto
