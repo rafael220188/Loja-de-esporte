@@ -1,10 +1,12 @@
 package gui;
 
+import java.awt.CardLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -35,7 +37,7 @@ public class CadastrarClientePanel extends JPanel {
 		telefone.setText("");
 	}
 
-	public CadastrarClientePanel() {
+	public CadastrarClientePanel(JFrame frame, CardLayout card) {
 		JLabel label;
 
 		setLayout(new FlowLayout());
@@ -60,20 +62,15 @@ public class CadastrarClientePanel extends JPanel {
 		telefone = new JTextField(10);
 		add(telefone);
 
-		JButton button = new JButton(new CadastrarClienteAction(this));
+		JButton button = new JButton(new CadastrarClienteAction(this, frame, card));
 		button.setToolTipText("Cadastrar");
 		button.setMnemonic(KeyEvent.VK_C);
 		add(button);
 	
-		button = new JButton(new CadastrarClienteCancelarAction(this));
+		button = new JButton(new CadastrarClienteCancelarAction(this, frame, card));
 		button.setToolTipText("Cancelar cadastro do cliente");
 		button.setMnemonic(KeyEvent.VK_N);
 		add(button);
 			
-	}
-	
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		
 	}
 }	

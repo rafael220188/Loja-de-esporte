@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -11,14 +12,15 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
+import action.CadastrarClienteAction;
 import action.SairAction;
 import action.SobreAction;
-
+import action.TelaClienteAction;
 
 /**
  * 
  * @author marco.mangan@gmail.com
- *
+ * 
  */
 public class LojaEsporteSwing {
 	private static final CadastrarProdutoPanel CadastrarProdutoPanel = null;
@@ -34,41 +36,46 @@ public class LojaEsporteSwing {
 
 		JMenuBar mb = new JMenuBar();
 		frame.setJMenuBar(mb);
-		
-		//atalho  alt + a
+
+		// atalho alt + a
 		JMenu arquivo = new JMenu("Arquivo");
 		arquivo.setMnemonic(KeyEvent.VK_A);
 		mb.add(arquivo);
-		
-		//atalho  alt + u
+
+		// atalho alt + u
 		JMenu ajuda = new JMenu("Ajuda");
 		ajuda.setMnemonic(KeyEvent.VK_U);
 		mb.add(ajuda);
 		
-		//JMenuItem cadastraCliente = new JMenuItem(new CadastrarClienteAction());
-		//arquivo.add(cadastraCliente);
-		
-		//atalho ctrl + q
+		CardLayout card = new CardLayout(0, 0);
+		JMenuItem cadastraCliente = new JMenuItem(new TelaClienteAction(card, frame));
+		arquivo.add(cadastraCliente);
+
+		// atalho ctrl + q
 		JMenuItem sair = new JMenuItem(new SairAction());
 		arquivo.add(sair);
 		sair.setMnemonic(KeyEvent.VK_S);
-		sair.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
-		
+		sair.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q,
+				ActionEvent.CTRL_MASK));
+
 		// atalho alt + s
 		JMenuItem sobre = new JMenuItem(new SobreAction(frame));
 		ajuda.add(sobre);
 		sobre.setMnemonic(KeyEvent.VK_S);
 		
-		JPanel panel = new CadastrarClientePanel();															
-		//JPanel panel2 = new CadastrarProdutoPanel();
+
 		
-		//add(button);
+		frame.getContentPane().setLayout(card);
 		
+		frame.getContentPane().add(new JPanel(), "branco");
 		
-		frame.getContentPane().add(panel);
-		//frame.getContentPane().add(panel2);
+		JPanel panel = new CadastrarClientePanel(frame, card);
+		frame.getContentPane().add(panel, "Cliente");
 		
-		frame.setPreferredSize(new Dimension(900,200));
+		JPanel panel2 = new CadastrarProdutoPanel();
+		frame.getContentPane().add(panel2, "Produto");
+
+		frame.setPreferredSize(new Dimension(900, 200));
 		frame.pack();
 		frame.setVisible(true);
 	}
