@@ -1,12 +1,16 @@
 package gui;
 
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 
-import action.CadastrarClienteAction;
 import action.SairAction;
 import action.SobreAction;
 
@@ -30,34 +34,41 @@ public class LojaEsporteSwing {
 
 		JMenuBar mb = new JMenuBar();
 		frame.setJMenuBar(mb);
-
+		
+		//atalho  alt + a
 		JMenu arquivo = new JMenu("Arquivo");
+		arquivo.setMnemonic(KeyEvent.VK_A);
 		mb.add(arquivo);
 		
-		//JMenu cadastraCliente = new JMenu("Cadastra Cliente");
-		//mb.add(cadastraCliente);
+		//atalho  alt + u
 		JMenu ajuda = new JMenu("Ajuda");
+		ajuda.setMnemonic(KeyEvent.VK_U);
 		mb.add(ajuda);
 		
 		//JMenuItem cadastraCliente = new JMenuItem(new CadastrarClienteAction());
 		//arquivo.add(cadastraCliente);
 		
+		//atalho ctrl + q
 		JMenuItem sair = new JMenuItem(new SairAction());
 		arquivo.add(sair);
+		sair.setMnemonic(KeyEvent.VK_S);
+		sair.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
+		
+		// atalho alt + s
 		JMenuItem sobre = new JMenuItem(new SobreAction(frame));
 		ajuda.add(sobre);
+		sobre.setMnemonic(KeyEvent.VK_S);
 		
-		//JPanel panel = new CadastrarClientePanel();															
-		JPanel panel2 = new CadastrarProdutoPanel();
+		JPanel panel = new CadastrarClientePanel();															
+		//JPanel panel2 = new CadastrarProdutoPanel();
 		
 		//add(button);
 		
 		
-		frame.getContentPane().add(panel2);
+		frame.getContentPane().add(panel);
 		//frame.getContentPane().add(panel2);
-
-		// frame.setPreferredSize(new Dimension(800,200));
-		//Display the window.
+		
+		frame.setPreferredSize(new Dimension(900,200));
 		frame.pack();
 		frame.setVisible(true);
 	}
