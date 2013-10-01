@@ -12,10 +12,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
-import action.CadastrarClienteAction;
 import action.SairAction;
 import action.SobreAction;
 import action.TelaClienteAction;
+import action.TelaProdutoAction;
 
 /**
  * 
@@ -48,8 +48,15 @@ public class LojaEsporteSwing {
 		mb.add(ajuda);
 		
 		CardLayout card = new CardLayout(0, 0);
+		// atalho alt + C
 		JMenuItem cadastraCliente = new JMenuItem(new TelaClienteAction(card, frame));
+		cadastraCliente.setMnemonic(KeyEvent.VK_C);
 		arquivo.add(cadastraCliente);
+		
+		// atalho alt + P
+		JMenuItem cadastraProduto = new JMenuItem(new TelaProdutoAction(card, frame));
+		cadastraProduto.setMnemonic(KeyEvent.VK_P);
+		arquivo.add(cadastraProduto);
 
 		// atalho ctrl + q
 		JMenuItem sair = new JMenuItem(new SairAction());
@@ -72,9 +79,10 @@ public class LojaEsporteSwing {
 		JPanel panel = new CadastrarClientePanel(frame, card);
 		frame.getContentPane().add(panel, "Cliente");
 		
-		JPanel panel2 = new CadastrarProdutoPanel();
+		JPanel panel2 = new CadastrarProdutoPanel(frame, card);
 		frame.getContentPane().add(panel2, "Produto");
 
+		
 		frame.setPreferredSize(new Dimension(900, 200));
 		frame.pack();
 		frame.setVisible(true);

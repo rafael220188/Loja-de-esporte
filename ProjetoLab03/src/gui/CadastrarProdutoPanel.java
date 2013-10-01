@@ -1,9 +1,11 @@
 package gui;
 
+import java.awt.CardLayout;
 import java.awt.FlowLayout;
 import java.awt.event.KeyEvent;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -34,7 +36,7 @@ public class CadastrarProdutoPanel extends JPanel {
 		quantidade.setText("");
 	}
 
-	public CadastrarProdutoPanel() {
+	public CadastrarProdutoPanel(JFrame frame, CardLayout card) {
 		JLabel label;
 
 		setLayout(new FlowLayout());
@@ -59,12 +61,12 @@ public class CadastrarProdutoPanel extends JPanel {
 		quantidade = new JTextField(4);
 		add(quantidade);
 
-		JButton button = new JButton(new CadastrarProdutoAction(this));
+		JButton button = new JButton(new CadastrarProdutoAction(this, frame, card));
 		button.setToolTipText("Cadastrar Produto");
 		button.setMnemonic(KeyEvent.VK_C);
 		add(button);
 		
-		button = new JButton(new CadastrarProdutoCancelarAction(this));
+		button = new JButton(new CadastrarProdutoCancelarAction(this, frame, card));
 		button.setToolTipText("Cancelar cadastro do produto");
 		button.setMnemonic(KeyEvent.VK_N);
 		add(button);

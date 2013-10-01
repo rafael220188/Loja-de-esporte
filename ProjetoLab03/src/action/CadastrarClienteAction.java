@@ -13,7 +13,7 @@ import Loja.dao.LojaEsporteDAO;
 
 /**
  * 
- * @author marco.mangan@gmail.com
+ * @author rafaelsmdm@gmail.com
  *
  */
 public class CadastrarClienteAction extends AbstractAction {
