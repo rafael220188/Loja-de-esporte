@@ -15,11 +15,12 @@ import javax.swing.KeyStroke;
 import action.SairAction;
 import action.SobreAction;
 import action.TelaClienteAction;
+import action.TelaPesquisaClienteAction;
 import action.TelaProdutoAction;
 
 /**
  * 
- * @author marco.mangan@gmail.com
+ * @author rafaelsmdm@gmail.com
  * 
  */
 public class LojaEsporteSwing {
@@ -41,11 +42,17 @@ public class LojaEsporteSwing {
 		JMenu arquivo = new JMenu("Arquivo");
 		arquivo.setMnemonic(KeyEvent.VK_A);
 		mb.add(arquivo);
+		
+		// atalho alt + F
+		JMenu pesquisar = new JMenu("Pesquisar");
+		pesquisar.setMnemonic(KeyEvent.VK_F);
+		mb.add(pesquisar);
 
 		// atalho alt + u
 		JMenu ajuda = new JMenu("Ajuda");
 		ajuda.setMnemonic(KeyEvent.VK_U);
 		mb.add(ajuda);
+		
 		
 		CardLayout card = new CardLayout(0, 0);
 		// atalho alt + C
@@ -57,6 +64,12 @@ public class LojaEsporteSwing {
 		JMenuItem cadastraProduto = new JMenuItem(new TelaProdutoAction(card, frame));
 		cadastraProduto.setMnemonic(KeyEvent.VK_P);
 		arquivo.add(cadastraProduto);
+		
+		// atalho alt + C
+		JMenuItem pesquisaCliente = new JMenuItem(new TelaPesquisaClienteAction(card, frame));
+		pesquisaCliente.setMnemonic(KeyEvent.VK_C);
+		pesquisar.add(pesquisaCliente);
+		
 
 		// atalho ctrl + q
 		JMenuItem sair = new JMenuItem(new SairAction());

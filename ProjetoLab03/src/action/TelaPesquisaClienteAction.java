@@ -6,26 +6,20 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.JFrame;
 
-/**
- * 
- * @author marco.mangan@gmail.com
- * 
- */
-public class TelaClienteAction extends AbstractAction {
-
+public class TelaPesquisaClienteAction extends AbstractAction {
 	
 	private static final long serialVersionUID = 1L;
 	private JFrame frame;
 	private CardLayout card;
-
-	public TelaClienteAction(CardLayout card, JFrame frame) {
-		super("Cadastra cliente");
+	
+	public TelaPesquisaClienteAction(CardLayout card, JFrame frame) {
+		super("Pesquisar cliente");
 		this.frame = frame;
 		this.card = card;
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(ActionEvent e) {
 		card.show(frame.getContentPane(), "Cliente");
 		
 	}

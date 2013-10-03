@@ -18,6 +18,9 @@ public class Cliente {
 		this.codCliente = codCliente;
 	}
 	
+	public Cliente(String text) {
+		// TODO Auto-generated constructor stub
+	}
 
 
 	public Cliente( String nome, String endereco, String cpf, String telefone) {
