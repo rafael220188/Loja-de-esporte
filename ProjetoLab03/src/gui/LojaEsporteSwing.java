@@ -12,6 +12,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
+import action.ResultadoPanel;
 import action.SairAction;
 import action.SobreAction;
 import action.TelaClienteAction;
@@ -43,9 +44,9 @@ public class LojaEsporteSwing {
 		arquivo.setMnemonic(KeyEvent.VK_A);
 		mb.add(arquivo);
 		
-		// atalho alt + F
+		// atalho alt + P
 		JMenu pesquisar = new JMenu("Pesquisar");
-		pesquisar.setMnemonic(KeyEvent.VK_F);
+		pesquisar.setMnemonic(KeyEvent.VK_P);
 		mb.add(pesquisar);
 
 		// atalho alt + u
@@ -60,9 +61,9 @@ public class LojaEsporteSwing {
 		cadastraCliente.setMnemonic(KeyEvent.VK_C);
 		arquivo.add(cadastraCliente);
 		
-		// atalho alt + P
+		// atalho alt + O
 		JMenuItem cadastraProduto = new JMenuItem(new TelaProdutoAction(card, frame));
-		cadastraProduto.setMnemonic(KeyEvent.VK_P);
+		cadastraProduto.setMnemonic(KeyEvent.VK_O);
 		arquivo.add(cadastraProduto);
 		
 		// atalho alt + C
@@ -94,7 +95,15 @@ public class LojaEsporteSwing {
 		
 		JPanel panel2 = new CadastrarProdutoPanel(frame, card);
 		frame.getContentPane().add(panel2, "Produto");
-
+		
+		JPanel panel4 = new ResultadoPanel(frame, card);
+		frame.getContentPane().add(panel4, "Resultado");
+		
+		JPanel panel3 = new PesquisaClientePanel(frame, card, panel4);
+		frame.getContentPane().add(panel3, "Pesquisa");
+		
+		
+		
 		
 		frame.setPreferredSize(new Dimension(900, 200));
 		frame.pack();

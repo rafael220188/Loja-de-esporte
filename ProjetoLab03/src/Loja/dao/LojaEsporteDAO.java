@@ -14,8 +14,9 @@ public class LojaEsporteDAO {
 
 	public Cliente findClienteByCPF(String cpf) {
 		Cliente cliente = null;
-		String cmd = "select * from cliente";
-
+		String cmd = "select * from cliente where cpf= ?";
+		//String cmd = "select * from cliente";
+		
 		Connection db = null;
 		PreparedStatement st = null;
 		ResultSet rs = null;
@@ -29,7 +30,7 @@ public class LojaEsporteDAO {
 			db = DriverManager.getConnection(url, props);
 
 			st = db.prepareStatement(cmd);
-			// st.setString(1, cpf);
+			st.setString(1, cpf);
 			rs = st.executeQuery();
 
 			while (rs.next()) {

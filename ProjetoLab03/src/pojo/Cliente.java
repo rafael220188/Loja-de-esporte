@@ -18,6 +18,12 @@ public class Cliente {
 		this.codCliente = codCliente;
 	}
 	
+	public Cliente() {
+		super();
+	}
+
+
+
 	public Cliente(String text) {
 		// TODO Auto-generated constructor stub
 	}

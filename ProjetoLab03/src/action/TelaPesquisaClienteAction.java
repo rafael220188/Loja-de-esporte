@@ -20,7 +20,7 @@ public class TelaPesquisaClienteAction extends AbstractAction {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		card.show(frame.getContentPane(), "Cliente");
+		card.show(frame.getContentPane(), "Pesquisa");
 		
 	}
 
