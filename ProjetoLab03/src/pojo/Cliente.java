@@ -8,8 +8,7 @@ public class Cliente {
 	private String cpf;
 	private String telefone;
 
-	public Cliente(String nome, String endereco, String cpf, String telefone,
-			int codCliente) {
+	public Cliente(int codCliente, String nome, String endereco, String cpf, String telefone) {
 		super();
 		this.nome = nome;
 		this.endereco = endereco;
@@ -76,7 +75,4 @@ public class Cliente {
 		return codCliente;
 	}
 
-	public void setCodCliente(int codCliente) {
-		this.codCliente = codCliente;
-	}
 }

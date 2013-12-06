@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.CardLayout;
 import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
@@ -12,6 +13,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
+import action.ListaClienteAction;
 import action.ResultadoPanel;
 import action.SairAction;
 import action.SobreAction;
@@ -35,6 +37,9 @@ public class LojaEsporteSwing {
 		// Create and set up the window.
 		JFrame frame = new JFrame("Loja de esporte");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(
+				LojaEsporteSwing.class.getResource("/gui/111.png")));
 
 		JMenuBar mb = new JMenuBar();
 		frame.setJMenuBar(mb);
@@ -48,6 +53,11 @@ public class LojaEsporteSwing {
 		JMenu pesquisar = new JMenu("Pesquisar");
 		pesquisar.setMnemonic(KeyEvent.VK_P);
 		mb.add(pesquisar);
+		
+		// atalho alt + L
+		JMenu listar = new JMenu("Listar");
+		listar.setMnemonic(KeyEvent.VK_L);
+		mb.add(listar);
 
 		// atalho alt + u
 		JMenu ajuda = new JMenu("Ajuda");
@@ -71,7 +81,11 @@ public class LojaEsporteSwing {
 		pesquisaCliente.setMnemonic(KeyEvent.VK_C);
 		pesquisar.add(pesquisaCliente);
 		
-
+		// atalho alt + T
+		JMenuItem listaCliente = new JMenuItem(new ListaClienteAction(frame, card));
+		listaCliente.setMnemonic(KeyEvent.VK_T);
+		listar.add(listaCliente);
+		
 		// atalho ctrl + q
 		JMenuItem sair = new JMenuItem(new SairAction());
 		arquivo.add(sair);
@@ -83,8 +97,6 @@ public class LojaEsporteSwing {
 		JMenuItem sobre = new JMenuItem(new SobreAction(frame));
 		ajuda.add(sobre);
 		sobre.setMnemonic(KeyEvent.VK_S);
-		
-
 		
 		frame.getContentPane().setLayout(card);
 		
@@ -103,6 +115,8 @@ public class LojaEsporteSwing {
 		frame.getContentPane().add(panel3, "Pesquisa");
 		
 		
+		JPanel panel5 = new JListaClientePanel(frame, card);
+		frame.getContentPane().add(panel5, "TelaListaCliente");
 		
 		
 		frame.setPreferredSize(new Dimension(900, 200));
